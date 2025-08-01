@@ -1,0 +1,269 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:MSFIApp.Components.Controls"
+             xmlns:obj="clr-namespace:MSFIApp.Components.Objects"
+             xmlns:pages="clr-namespace:MSFIApp.Pages"
+             HideSoftInputOnTapped="True"
+             x:Class="MSFIApp.Pages.Login"
+             FlowDirection="RightToLeft"
+             Shell.FlyoutBehavior="Disabled"
+             Title=""
+             Padding="0"
+             x:Name="Loginpg"
+             BackgroundColor="White">
+
+    <Grid>
+        <local:MessagePopop 
+                    ZIndex="10"
+                    VerticalOptions="Start"
+                    HeightRequest="70"
+                    MinimumWidthRequest="200"
+                    Margin="40,0,40,0"
+                    HorizontalOptions="Fill"
+                    x:Name="ErrorPopup"
+                    BackgroundColor="Black"
+                    TextColor="White"/>
+
+        <ScrollView Orientation="Vertical"
+                    HorizontalOptions="Fill">
+
+            <StackLayout Spacing="20"                   
+                 Padding="0"   
+                 HorizontalOptions="FillAndExpand"
+                 VerticalOptions="Fill">
+
+                <Grid ColumnDefinitions="*,*" Margin="15,0,15,0" HeightRequest="20">
+                    <StackLayout Grid.Column="0"
+                         VerticalOptions="StartAndExpand"
+                         Orientation="Horizontal">
+
+                        <HorizontalStackLayout 
+                            Spacing="1"
+                            VerticalOptions="FillAndExpand"
+                            HorizontalOptions="StartAndExpand">
+
+                            <VerticalStackLayout Margin="5" 
+                                         VerticalOptions="Start">
+
+                                <Image Source="getbackarrow.png" 
+                               WidthRequest="16" 
+                               HeightRequest="9"/>
+
+                            </VerticalStackLayout>
+
+
+                            <local:LinkLabel     
+                                Text="بازگشت به سایت"                        
+                                TextColor="Black" 
+                                TextAlignment="Start"
+                                FontSize="13" 
+                                FontAttributes="None"/>
+                        </HorizontalStackLayout>
+                    </StackLayout>
+
+                    <StackLayout Grid.Column="1"
+                             VerticalOptions="Start"
+                             Orientation="Horizontal">
+
+                        <HorizontalStackLayout HorizontalOptions="EndAndExpand"
+                                           VerticalOptions="FillAndExpand"
+                                            Spacing="5">
+
+                            <VerticalStackLayout VerticalOptions="Center">
+
+                                <Image Source="infoicon.png"
+                                   BackgroundColor="Transparent"
+                                   WidthRequest="17" 
+                                   HeightRequest="17"/>
+
+                            </VerticalStackLayout>
+
+                            <local:LinkLabel     
+                                    Text="راهنمای پرتال" 
+                                    TextAlignment="End"
+                                    TextColor="#2F54EB" 
+                                    FontSize="13" 
+                                    Clicked="LinkLabel_Clicked"                        
+                                    FontAttributes="Bold"/>
+
+                        </HorizontalStackLayout>
+
+                    </StackLayout>
+                </Grid>
+
+                <StackLayout Orientation="Horizontal" 
+                         VerticalOptions="FillAndExpand"
+                         HorizontalOptions="CenterAndExpand" 
+                         Padding="0">
+
+                    <FlexLayout x:Name="ResponsiveGrid"                           
+                                    Direction="Column"
+                                    JustifyContent="Start"
+                                    AlignItems="Stretch"
+                                    HorizontalOptions="Fill"
+                                    VerticalOptions="Fill">
+
+                        <VerticalStackLayout  
+                             VerticalOptions="Center"
+                             HorizontalOptions="FillAndExpand"
+                             FlexLayout.Grow="1"
+                             InputTransparent="True">
+
+                            <Image Source="logo.png"    
+                               Aspect="AspectFit"
+                               FlexLayout.Basis="50"
+                               FlexLayout.Shrink="0"
+                               FlexLayout.Grow="0"
+                               VerticalOptions="FillAndExpand"/>
+
+
+
+                            <StackLayout    
+                                HorizontalOptions="Start"
+                                FlexLayout.Shrink="85"
+                                VerticalOptions="StartAndExpand"
+                                Orientation="Vertical"    
+                                MinimumHeightRequest="0"
+                                Spacing="4"
+                                Grid.Row="1"                      
+                                Margin="0,10,0,0">
+
+                                <local:TittleLabel Text="خوش آمدید" 
+                                             FontAttributes="Bold" 
+                                             MinimumHeightRequest="0"
+                                             FontSize="16"
+                                             TextColor="Black"/>
+
+                                <local:TittleLabel Text="لطفا اطلاعات خود را وارد کنید" 
+                                       FontSize="12" 
+                                             MinimumHeightRequest="0"
+                                       TextColor="Gray"/>
+                            </StackLayout>
+                        </VerticalStackLayout>
+
+                        <VerticalStackLayout Spacing="20" 
+                                         FlexLayout.Grow="1"
+                                         VerticalOptions="FillAndExpand" 
+                                         HorizontalOptions="FillAndExpand"                                     
+                                         Padding="0,10,0,15">
+
+                            <local:TextInput Placeholder="شماره تلفن یا کد ملی"
+                                         x:DataType="pages:Login"
+                                         Text="{Binding userName}" 
+                                         HeightRequest="48"/>
+
+
+                            <local:PasswordInput Placeholder="کلمه عبور"
+                                         ZIndex="10"
+                                         BackgroundColor="White"
+                                         x:DataType="pages:Login"
+                                         Password="{Binding Password}"
+                                         HeightRequest="48"/>
+
+                            <local:LinkLabel Text="فراموشی رمز؟"
+                                     HorizontalOptions="Start"
+                                     VerticalOptions="FillAndExpand"
+                                     FontSize="12"
+                                     TextColor="Red"
+                                     Clicked="ForgotPasswordClicked"/>
+                        </VerticalStackLayout>
+
+                        <StackLayout  
+                             FlexLayout.Grow="1"
+                             BackgroundColor="White"
+                             VerticalOptions="EndAndExpand"
+                             HorizontalOptions="Center"
+                             Orientation="Vertical">
+
+
+                            <VerticalStackLayout VerticalOptions="Fill" 
+                                         Spacing="15">
+
+
+                                <Grid ColumnDefinitions="*,*,Auto" 
+                              MinimumHeightRequest="0"
+                                ColumnSpacing="0">
+
+                                    <StackLayout Grid.Column="0"                               
+                                 HeightRequest="60"
+                                 VerticalOptions="Start"    
+                                 HorizontalOptions="Start"
+                                 Orientation="Horizontal"
+                                 Spacing="0">
+
+                                        <local:LinkLabel Text="ثبت نام دوره های آموزشی"
+                                               TextColor="#2F54EB"
+                                               FontAttributes="Bold"
+                                               VerticalOptions="End"
+                                                 Clicked="CoursesSignUpPage"/>
+
+                                    </StackLayout>
+
+                                    <StackLayout Grid.Column="1"
+                                         Orientation="Horizontal"
+                                         HorizontalOptions="Center"
+                                         VerticalOptions="Start"
+                                         Spacing="0">
+
+                                        <local:TittleLabel     Text="فراکوه"  
+                                               TextColor="#2F54EB"
+                                               FontAttributes="Bold"
+                                               VerticalOptions="Start"/>
+
+                                    </StackLayout>
+
+                                    <StackLayout Grid.Column="2"
+                                         HorizontalOptions="End"
+                                         Orientation="Horizontal"
+                                         Spacing="0">
+
+                                        <local:LinkLabel       Text="ثبت نام در مسابقات و لیگ"    
+                                                       Clicked="SingupInMatches"
+                                                       TextColor="#2F54EB"
+                                                       FontAttributes="Bold"
+                                                       VerticalOptions="End"/>
+
+
+                                    </StackLayout >
+                                </Grid>
+
+                                <VerticalStackLayout IsEnabled="{Binding Buttonenable}"
+                                             x:DataType="pages:Login"
+                                             VerticalOptions="End">
+
+                                    <local:PrimaryButton MainText="ورود"
+                                     LoadingText="ورود"
+                                     HorizontalOptions="FillAndExpand"
+                                     HeightRequest="48"
+                                     IsEnabled="True"
+                                     NormalBackgroundColor="#2F54EB"
+                                     LoadingBackgroundColor="#2F54EB"
+                                     IsBusy="{Binding IsButtonBusy, Source={x:Reference Loginpg},Mode=TwoWay}"
+                                     OnClick="PrimaryButton_OnClick"/>
+                                </VerticalStackLayout>
+                            </VerticalStackLayout>
+                            <StackLayout Orientation="Horizontal" 
+                                 Margin="5"
+                         VerticalOptions="End"
+                         HorizontalOptions="Center"
+                         Spacing="8">
+
+                                <local:TittleLabel  Text="حساب کاربری ندارید؟" 
+                                    FontSize="12" 
+                                    TextColor="Gray"/>
+
+                                <local:LinkLabel  
+                            Text="ثبت‌ نام" 
+                            FontSize="12"
+                            TextColor="#2F54EB" 
+                            Clicked="SignupClicked"
+                            FontAttributes="Bold"/>
+                            </StackLayout>
+                        </StackLayout>
+                    </FlexLayout>
+                </StackLayout>
+            </StackLayout>
+        </ScrollView>
+    </Grid>
+</ContentPage>

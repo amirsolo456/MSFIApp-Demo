@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentView 
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:MSFIApp.Components.Controls"
+    xmlns:con="clr-namespace:MSFIApp.ViewModels.Converters"
+    x:Class="MSFIApp.Components.Controls.AreasSelectBox"
+    FlowDirection="RightToLeft"
+    x:Name="MyAreaselectbox">
+
+    <ContentView.Resources>
+        <con:InverseBoolConverter x:Key="InverseBoolConverter" />
+    </ContentView.Resources>
+
+    <VerticalStackLayout>
+
+        <local:AreaPopup x:Name="AreaPopupControl"
+                         ZIndex="10"
+                         BackgroundColor="White"
+                         OnSelected="OnSelectItem"
+                         MinimumHeightRequest="200"
+                         AbsoluteLayout.LayoutBounds="0,0,1,1" 
+                         AbsoluteLayout.LayoutFlags="All"
+                         HorizontalOptions="Fill"
+                         x:DataType="local:AreasSelectBox"
+                         Areas="{Binding FilteredAreas, Source={x:Reference MyAreaselectbox}}" />
+
+        <Grid>
+            <Grid.GestureRecognizers>
+                <TapGestureRecognizer Tapped="OnIconClicked"/>
+            </Grid.GestureRecognizers>
+            
+            <local:TextInput
+                     x:Name="SearchEntry"     
+                     OnFocused="SearchEntry_OnFocused"
+                     VerticalOptions="Fill"
+                     Placeholder="استان محل سکونت"                    
+                     NormalBorderColor="Black"                    
+                     Opacity="1"
+                     InputMode="Text"
+                     HorizontalOptions="Fill"
+                     x:DataType="local:AreasSelectBox"
+                     Text="{Binding SearchText, Source={x:Reference MyAreaselectbox}, Mode=TwoWay}">
+
+                <local:TextInput.TrailingContent>
+
+                    <Grid                       
+                          HorizontalOptions="Center"
+                          VerticalOptions="Fill"
+                          ColumnSpacing="5"
+                          Margin="0,0,10,0"
+                          ColumnDefinitions="Auto,Auto">
+
+                        <ImageButton Source="x.png"
+                                 IsVisible="{Binding IsDeletehMode, Source={x:Reference MyAreaselectbox}}"
+                                 x:DataType="local:AreasSelectBox"
+                                 Clicked="OnClearClicked"
+                                 HeightRequest="24"
+                                 MaximumWidthRequest="28"
+                                 WidthRequest="24"
+                                 Margin="0,0"
+                                 Grid.Column="0"
+                                 VerticalOptions="Center" />
+
+                        <ImageButton Source="{Binding IconSource, Source={x:Reference MyAreaselectbox}}"
+                                     x:DataType="local:AreasSelectBox"
+                                     Clicked="OnIconClicked"
+                                     HorizontalOptions="End"
+                                     Grid.Column="1"
+                                     BackgroundColor="Transparent"
+                                     HeightRequest="24"
+                                     MaximumWidthRequest="34"
+                                     WidthRequest="24"
+                                     Margin="0,0"                                 
+                                     VerticalOptions="Center" />
+
+                    </Grid>
+                </local:TextInput.TrailingContent>
+            </local:TextInput>
+
+        </Grid>
+    </VerticalStackLayout>
+</ContentView>

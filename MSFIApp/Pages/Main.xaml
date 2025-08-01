@@ -1,0 +1,221 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:vm="clr-namespace:MSFIApp.ViewModels.User.News"
+             xmlns:local="clr-namespace:MSFIApp.Components.Controls"
+             xmlns:obj="clr-namespace:MSFIApp.Components.Objects"
+             xmlns:models="clr-namespace:MSFIApp.Dtos.User.News"
+             x:Class="MSFIApp.Pages.Main" 
+             FlowDirection="RightToLeft"
+             Shell.FlyoutBehavior="Disabled"          
+             x:Name="Contentpage"
+             Title="">
+
+    <ContentPage.BindingContext>
+        <vm:NewsViewModel/>
+    </ContentPage.BindingContext>
+
+    <Grid x:Name="mainpage" 
+          Padding="14,0,14,0"
+          RowDefinitions="70,*" 
+          VerticalOptions="Fill">
+        
+        <local:MessagePopop 
+                    ZIndex="10"
+                    VerticalOptions="Start"
+                    HeightRequest="70"
+                    MinimumWidthRequest="200"
+                    Margin="40,0,40,0"
+                    HorizontalOptions="Fill"
+                    x:Name="ErrorPopup"
+                    BackgroundColor="Black"
+                    TextColor="White"/>
+        
+        <VerticalStackLayout x:Name="mainphead" >
+            <obj:MainHeader Grid.Row="0"
+                            Padding="20,0,10,0"
+                            FlowDirection="RightToLeft"        
+                            VerticalOptions="Center"
+                            HeightRequest="60"
+                            MorevetClick="MainHeader_MorevetClick"
+                            FoureVetClick="MainHeader_FoureVetClick"
+                            LogoClick="MainHeader_LogoClick"/>
+
+            <local:Divider HeightRequest="2"
+                       Padding="0,5,0,5"/>
+        </VerticalStackLayout>
+
+
+        <Grid  Grid.Row="1" VerticalOptions="Start">
+
+            <local:Drawer x:Name="MyDrawer" 
+                              Direction="Right"
+                              ZIndex="10"
+                              HorizontalOptions="FillAndExpand"
+                              IsOpen="False">
+
+                <local:Drawer.DrawerContentView>
+                    <obj:Profile/>
+                </local:Drawer.DrawerContentView>
+
+            </local:Drawer>
+
+            <VerticalStackLayout>
+
+                <HorizontalStackLayout HeightRequest="60"
+                                       x:Name="dashboard"
+                                       VerticalOptions="Center">
+
+                    <local:IconButton IconSource="dashboard.png" 
+                              VerticalOptions="Center"
+                              FontAttributes="Bold"
+                              Text="داشبرد"
+                              Clicked="IconButton_Clicked"/>
+
+                </HorizontalStackLayout>
+
+                <ScrollView x:Name="headborder" Orientation="Horizontal"
+                            HorizontalScrollBarVisibility="Never">
+                    <StackLayout>
+                        <Grid ColumnDefinitions="100,220,100,100"
+                                   Padding="0"
+                                   HeightRequest="40"
+                                   VerticalOptions="Start"
+                                   HorizontalOptions="Fill">
+
+                            <Button x:Name="BtnTab1" 
+                                     Grid.Column="0"
+                                     FontSize="16"
+                                     VerticalOptions="Center"
+                                     Text="آخرین اخبار" 
+                                     TextColor="Black"  
+                                     FontAttributes="Bold" 
+                                     Clicked="OnTabClicked" 
+                                     BackgroundColor="Transparent"
+                                     HorizontalOptions="Start"
+                                     CharacterSpacing="0.001"
+                                     Padding="0,0,10,0"/>
+
+                            <Button x:Name="BtnTab2"
+                                     Grid.Column="1"
+                                     FontSize="16"
+                                     Text="آخرین دوره های آموزشی ومسابقات"
+                                     TextColor="Black"
+                                     LineBreakMode="NoWrap"
+                                     Clicked="OnTabClicked"
+                                     BackgroundColor="Transparent"
+                                     HorizontalOptions="CenterAndExpand"
+                                     Padding="0"/>
+
+                            <Button x:Name="BtnTab3"
+                                     Grid.Column="2"
+                                     FontSize="16"
+                                     Text="علاقه مندی" 
+                                     TextColor="Black"
+                                     Clicked="OnTabClicked"
+                                     BackgroundColor="Transparent"
+                                     HorizontalOptions="CenterAndExpand"
+                                     Padding="0"/>
+
+                            <Button x:Name="BtnTab4"
+                                     Grid.Column="3"
+                                     FontSize="16"
+                                     Text="سوابق من"
+                                     TextColor="Black"
+                                     Clicked="OnTabClicked"
+                                     BackgroundColor="Transparent"
+                                     HorizontalOptions="FillAndExpand"
+                                     Padding="10,0,0,0"/>
+                        </Grid>
+
+                        <Grid Margin="10,0,10,10"
+                                     HeightRequest="2">
+
+                            <BoxView BackgroundColor="LightGray"
+                                      HeightRequest="2"
+                                      CornerRadius="10"
+                                      HorizontalOptions="FillAndExpand"/>
+
+                            <BoxView x:Name="Blackborder"
+                                      BackgroundColor="Black"
+                                      HeightRequest="2"
+                                      WidthRequest="70"
+                                      CornerRadius="10"
+                                      HorizontalOptions="Start"/>
+
+                        </Grid>
+                    </StackLayout>
+                </ScrollView>
+
+                <Grid x:Name="SlideContainer"
+                              ColumnDefinitions="393,429,429"
+                              MinimumWidthRequest="1287"
+                              HorizontalOptions="Start">
+
+                    <Grid.GestureRecognizers>
+                        <PanGestureRecognizer PanUpdated="OnPanUpdated"/>
+                    </Grid.GestureRecognizers>
+
+                    <ScrollView x:Name="Tab0"
+                                BackgroundColor="Transparent"
+                                Margin="25,5,25,0"
+                                Orientation="Vertical"
+                                MaximumHeightRequest="600"
+                                VerticalOptions="FillAndExpand"
+                                Grid.Column="0">
+
+                        <StackLayout Orientation="Vertical"
+                                     BindableLayout.ItemsSource="{Binding Response.Entity.Articles}"
+                                     x:DataType="vm:NewsViewModel"
+                                     HorizontalOptions="Center"
+                                     VerticalOptions="Fill">
+
+                            <StackLayout.GestureRecognizers>
+                                <PanGestureRecognizer PanUpdated="OnPanUpdated"/>
+                            </StackLayout.GestureRecognizers>
+
+                            <BindableLayout.ItemTemplate>
+                                <DataTemplate x:DataType="models:ArticleModel">
+                                    <local:DashboardItem Article="{Binding}"/>
+                                </DataTemplate>
+                            </BindableLayout.ItemTemplate>
+                        </StackLayout>
+                    </ScrollView>
+
+                    <VerticalStackLayout Grid.Column="1"
+                                     Margin="65,5,20,0"
+                                     x:Name="Tab1"
+                                     VerticalOptions="FillAndExpand"
+                                     HorizontalOptions="FillAndExpand"
+                                     x:DataType="vm:NewsViewModel"
+                                     BindableLayout.ItemsSource="{Binding Response.Entity.Classes}">
+
+                        <BindableLayout.ItemTemplate>
+                            <DataTemplate x:DataType="models:ClassModel">
+                                <local:NavigationLabel TextColor="#595959"
+                                       FontSize="16"
+                                       HeightRequest="60"
+                                       FontAttributes="Bold"
+                                       Text="{Binding Title}"
+                                       UrlAdress="{Binding Id}"/>
+                            </DataTemplate>
+                        </BindableLayout.ItemTemplate>
+                    </VerticalStackLayout>
+
+                    <VerticalStackLayout Grid.Column="2"
+                                     x:Name="Tab2"
+                                     Margin="65,5,20,0"
+                                     VerticalOptions="FillAndExpand"
+                                     HorizontalOptions="FillAndExpand">
+
+                        <obj:Favorites x:Name="FavoritView" />
+                    </VerticalStackLayout>
+                </Grid>
+
+
+            </VerticalStackLayout>
+
+        </Grid>
+    </Grid>
+
+</ContentPage>

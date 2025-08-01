@@ -1,0 +1,42 @@
+{
+  "requests": [
+    {
+      "id": 0
+    }
+  ],
+  "responses": [
+    {
+      "status": 1,
+      "id": 0,
+      "error": null,
+      "entity": [
+        {
+          "id": 1,
+          "title": "شرکت‌‌ کننده (آموزش/صعود/اردو)",
+          "classRegisterationPeople": []
+        },
+        {
+          "id": 3,
+          "title": "سرپرست تیم در مسابقه",
+          "classRegisterationPeople": []
+        },
+        {
+          "id": 4,
+          "title": "مربی تیم در مسابقه",
+          "classRegisterationPeople": []
+        },
+        {
+          "id": 5,
+          "title": "شرکت‌کننده اصلی درمسابقه",
+          "classRegisterationPeople": []
+        },
+        {
+          "id": 6,
+          "title": "شرکت‌کننده ذخیره درمسابقه",
+          "classRegisterationPeople": []
+        }
+      ],
+      "total": 0
+    }
+  ]
+}

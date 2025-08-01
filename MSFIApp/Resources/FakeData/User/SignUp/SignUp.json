@@ -1,0 +1,26 @@
+{
+  "requests": [
+    {
+      "areaId": 3,
+      "brithDay": "۱۳۸۵/۰۸/۳۰",
+      "cityId": 3,
+      "firstName": "امیر",
+      "lastName": "جزسلیمانی",
+      "mobile": "09509947320",
+      "naturalCode": "1271057332",
+      "sex": 2
+    }
+  ],
+  "responses": [
+    {
+      "status": 0,
+      "id": 0,
+      "error": {
+        "code": "",
+        "message": "با این شماره همراه قبلا کاربری ایجاد شده است"
+      },
+      "entity": null,
+      "total": null
+    }
+  ]
+}

@@ -1,0 +1,291 @@
+{
+  "requests": [
+    {
+      "AreaId": 2,
+      "PageSize": 10000
+    }
+  ],
+  "responses": [
+    {
+      "status": 1,
+      "id": 0,
+      "error": null,
+      "entity": [
+        {
+          "id": 220,
+          "title": "اروميه",
+          "displayTitle": null,
+          "titleEn": null,
+          "additionalData": null
+        },
+        {
+          "id": 221,
+          "title": "اشنويه",
+          "displayTitle": null,
+          "titleEn": null,
+          "additionalData": null
+        },
+        {
+          "id": 222,
+          "title": "ايواوغلي",
+          "displayTitle": null,
+          "titleEn": null,
+          "additionalData": null
+        },
+        {
+          "id": 223,
+          "title": "آواجيق",
+          "displayTitle": null,
+          "titleEn": null,
+          "additionalData": null
+        },
+        {
+          "id": 224,
+          "title": "باروق",
+          "displayTitle": null,
+          "titleEn": null,
+          "additionalData": null
+        },
+        {
+          "id": 225,
+          "title": "بازرگان",
+          "displayTitle": null,
+          "titleEn": null,
+          "additionalData": null
+        },
+        {
+          "id": 226,
+          "title": "بوكان",
+          "displayTitle": null,
+          "titleEn": null,
+          "additionalData": null
+        },
+        {
+          "id": 227,
+          "title": "پلدشت",
+          "displayTitle": null,
+          "titleEn": null,
+          "additionalData": null
+        },
+        {
+          "id": 228,
+          "title": "پيرانشهر",
+          "displayTitle": null,
+          "titleEn": null,
+          "additionalData": null
+        },
+        {
+          "id": 229,
+          "title": "تازه شهر",
+          "displayTitle": null,
+          "titleEn": null,
+          "additionalData": null
+        },
+        {
+          "id": 230,
+          "title": "تكاب",
+          "displayTitle": null,
+          "titleEn": null,
+          "additionalData": null
+        },
+        {
+          "id": 231,
+          "title": "چهاربرج",
+          "displayTitle": null,
+          "titleEn": null,
+          "additionalData": null
+        },
+        {
+          "id": 232,
+          "title": "خليفان",
+          "displayTitle": null,
+          "titleEn": null,
+          "additionalData": null
+        },
+        {
+          "id": 233,
+          "title": "خوي",
+          "displayTitle": null,
+          "titleEn": null,
+          "additionalData": null
+        },
+        {
+          "id": 234,
+          "title": "ديزج ديز",
+          "displayTitle": null,
+          "titleEn": null,
+          "additionalData": null
+        },
+        {
+          "id": 235,
+          "title": "ربط",
+          "displayTitle": null,
+          "titleEn": null,
+          "additionalData": null
+        },
+        {
+          "id": 236,
+          "title": "سردشت",
+          "displayTitle": null,
+          "titleEn": null,
+          "additionalData": null
+        },
+        {
+          "id": 237,
+          "title": "سرو",
+          "displayTitle": null,
+          "titleEn": null,
+          "additionalData": null
+        },
+        {
+          "id": 238,
+          "title": "سلماس",
+          "displayTitle": null,
+          "titleEn": null,
+          "additionalData": null
+        },
+        {
+          "id": 239,
+          "title": "سيلوانه",
+          "displayTitle": null,
+          "titleEn": null,
+          "additionalData": null
+        },
+        {
+          "id": 240,
+          "title": "سيمينه",
+          "displayTitle": null,
+          "titleEn": null,
+          "additionalData": null
+        },
+        {
+          "id": 241,
+          "title": "سيه چشمه",
+          "displayTitle": null,
+          "titleEn": null,
+          "additionalData": null
+        },
+        {
+          "id": 242,
+          "title": "شاهين دژ",
+          "displayTitle": null,
+          "titleEn": null,
+          "additionalData": null
+        },
+        {
+          "id": 243,
+          "title": "شوط",
+          "displayTitle": null,
+          "titleEn": null,
+          "additionalData": null
+        },
+        {
+          "id": 244,
+          "title": "فيرورق",
+          "displayTitle": null,
+          "titleEn": null,
+          "additionalData": null
+        },
+        {
+          "id": 245,
+          "title": "قره ضياءالدين",
+          "displayTitle": null,
+          "titleEn": null,
+          "additionalData": null
+        },
+        {
+          "id": 246,
+          "title": "قطور",
+          "displayTitle": null,
+          "titleEn": null,
+          "additionalData": null
+        },
+        {
+          "id": 247,
+          "title": "قوشچي",
+          "displayTitle": null,
+          "titleEn": null,
+          "additionalData": null
+        },
+        {
+          "id": 248,
+          "title": "كشاورز",
+          "displayTitle": null,
+          "titleEn": null,
+          "additionalData": null
+        },
+        {
+          "id": 249,
+          "title": "گردكشانه",
+          "displayTitle": null,
+          "titleEn": null,
+          "additionalData": null
+        },
+        {
+          "id": 250,
+          "title": "ماكو",
+          "displayTitle": null,
+          "titleEn": null,
+          "additionalData": null
+        },
+        {
+          "id": 251,
+          "title": "محمديار",
+          "displayTitle": null,
+          "titleEn": null,
+          "additionalData": null
+        },
+        {
+          "id": 252,
+          "title": "محمودآباد",
+          "displayTitle": null,
+          "titleEn": null,
+          "additionalData": null
+        },
+        {
+          "id": 253,
+          "title": "مهاباد ",
+          "displayTitle": null,
+          "titleEn": null,
+          "additionalData": null
+        },
+        {
+          "id": 254,
+          "title": "مياندوآب",
+          "displayTitle": null,
+          "titleEn": null,
+          "additionalData": null
+        },
+        {
+          "id": 255,
+          "title": "ميرآباد",
+          "displayTitle": null,
+          "titleEn": null,
+          "additionalData": null
+        },
+        {
+          "id": 256,
+          "title": "نالوس",
+          "displayTitle": null,
+          "titleEn": null,
+          "additionalData": null
+        },
+        {
+          "id": 257,
+          "title": "نقده",
+          "displayTitle": null,
+          "titleEn": null,
+          "additionalData": null
+        },
+        {
+          "id": 258,
+          "title": "نوشين",
+          "displayTitle": null,
+          "titleEn": null,
+          "additionalData": null
+        }
+      ],
+      "total": 39
+    }
+  ]
+}

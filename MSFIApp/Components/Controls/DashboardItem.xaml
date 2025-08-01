@@ -1,0 +1,71 @@
+<ContentView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MSFIApp.Components.Controls.DashboardItem"
+             xmlns:local="clr-namespace:MSFIApp.Components.Controls"
+             x:Name="dashboardItem"
+             FlowDirection="RightToLeft">
+
+    <VerticalStackLayout Spacing="0"
+                         HeightRequest="80">
+
+        <!-- محتوای اصلی -->
+        <Grid Padding="0,0,0,12"
+              VerticalOptions="FillAndExpand"
+              ColumnSpacing="8">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+
+            <Border WidthRequest="56"
+                    HeightRequest="56"
+                    MaximumWidthRequest="64"
+                    MaximumHeightRequest="64"
+                    BackgroundColor="Transparent"
+                    StrokeShape="RoundRectangle 10"
+                    Grid.Column="0">
+
+                <Image Source="{Binding Article.ImageUrtl, Source={x:Reference dashboardItem}}"
+                       Aspect="AspectFill"
+                       HorizontalOptions="Fill"
+                       VerticalOptions="Fill" />
+            </Border>
+
+            <StackLayout Grid.Column="1"
+                         Spacing="4"
+                         HorizontalOptions="Start"
+                         VerticalOptions="Center">
+
+                <Label Text="{Binding Article.Title, Source={x:Reference dashboardItem}}"
+                       FontSize="12"
+                       FontAttributes="Bold"
+                       TextColor="Black"
+                       LineBreakMode="TailTruncation" />
+
+                <Label Text="{Binding Article.Description, Source={x:Reference dashboardItem}}"
+                       FontSize="10"
+                       TextColor="#444444"
+                       LineBreakMode="TailTruncation" />
+
+                <HorizontalStackLayout HorizontalOptions="Start"
+                                       Spacing="4">
+                    <local:HyperlinkLabel Text="ادامه مطلب"
+                                          UrlAdress="{Binding Article.Url, Source={x:Reference dashboardItem}}"
+                                          FontSize="10"
+                                          FontAttributes="Bold"
+                                          TextColor="#007bff" />
+
+                    <Image Source="arrow_left.png"
+                           WidthRequest="12"
+                           HeightRequest="12" />
+                </HorizontalStackLayout>
+            </StackLayout>
+        </Grid>
+
+        <!-- خط پایین -->
+        <BoxView HeightRequest="0.5"
+                 Color="Gray"
+                 HorizontalOptions="FillAndExpand" />
+    </VerticalStackLayout>
+
+</ContentView>

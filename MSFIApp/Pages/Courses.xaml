@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:controls="clr-namespace:MSFIApp.Components.Controls"
+             xmlns:obj="clr-namespace:MSFIApp.Components.Objects"
+             xmlns:pages="clr-namespace:MSFIApp.Pages"
+             x:Class="MSFIApp.Pages.Courses"
+             Shell.FlyoutBehavior="Disabled" 
+             FlowDirection="RightToLeft"
+             Padding="0"
+             x:Name="cList"
+             Title="">
+
+    <Grid x:Name="mainpage" 
+          Margin="20,0,20,0"
+        RowDefinitions="70,*" 
+        VerticalOptions="Fill">
+        
+        <controls:MessagePopop 
+                    ZIndex="10"
+                    VerticalOptions="Start"
+                    HeightRequest="70"
+                    MinimumWidthRequest="200"
+                    Margin="40,0,40,0"
+                    HorizontalOptions="Fill"
+                    x:Name="ErrorPopup"
+                    BackgroundColor="Black"
+                    TextColor="White"/>
+        
+        <HorizontalStackLayout Grid.Row="0" 
+                               HorizontalOptions="Fill" >
+
+            <controls:IconButton IconSource="backbutton.png"                                
+                                 VerticalOptions="Center"
+                                 Text=""
+                                 TextColor="Transparent"
+                                 Clicked="GetBackClick"/>
+            
+
+        </HorizontalStackLayout>
+
+
+
+        <Grid RowDefinitions="70,*" RowSpacing="0"    Grid.Row="1" VerticalOptions="Start">
+            <VerticalStackLayout Grid.Row="0">
+
+                <HorizontalStackLayout 
+                               HorizontalOptions="Fill" >
+
+                    <controls:IconButton IconSource="courseslist.png"
+                                 VerticalOptions="Center"
+                                 Text="لیست دوره ها"
+                                 TextColor="Black"
+                                 FontAttributes="Bold"
+                                 FontSize="18"/>
+
+                </HorizontalStackLayout>
+
+                <ScrollView x:Name="headborder" Orientation="Horizontal"
+                            HorizontalOptions="Start"
+                          HorizontalScrollBarVisibility="Never">
+                    
+                    <StackLayout>
+                        <Grid  x:Name="ButtonsGrid"
+                               HeightRequest="40"
+                               VerticalOptions="Start"
+                               HorizontalOptions="Fill">
+
+                        </Grid>
+                        
+                        <Grid Margin="10,0,10,10"
+                              Padding="10,0,10,0"
+                              HeightRequest="2">
+                            
+                            <BoxView x:Name="Blackborder"
+                                    BackgroundColor="Black"
+                                    MinimumHeightRequest="2"
+                                    ZIndex="10"
+                                    CornerRadius="10"
+                                    HorizontalOptions="Start"/>
+                            
+                            <BoxView BackgroundColor="LightGray"
+                                    HeightRequest="2"
+                                    CornerRadius="10"
+                                    HorizontalOptions="FillAndExpand"/>
+
+
+
+                        </Grid>
+                    </StackLayout>
+                </ScrollView>
+
+            </VerticalStackLayout>
+
+            <VerticalStackLayout Grid.Row="1" 
+                                 VerticalOptions="StartAndExpand">
+                <obj:CourseCardView SharedList="{Binding ContentDataShared, Source={x:Reference cList}}"
+                                    x:Name="cardObj"
+                                    Isloading="{Binding  Loading, Source={x:Reference cList}}"
+                                    MenList="{Binding ContentDataMens, Source={x:Reference cList}}"
+                                    WomenList="{Binding ContentDataWomens, Source={x:Reference cList}}"
+                                    x:DataType="pages:Courses"/>
+            </VerticalStackLayout>
+        </Grid>
+    </Grid>
+</ContentPage>

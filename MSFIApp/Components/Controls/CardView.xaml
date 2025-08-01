@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:controls="clr-namespace:MSFIApp.Components.Controls"
+                xmlns:sys="clr-namespace:System;assembly=netstandard"
+             xmlns:local="clr-namespace:MSFIApp.ViewModels.Converters"
+             x:Class="MSFIApp.Components.Controls.CardView"
+             VerticalOptions="Fill"
+             x:Name="cView">
+
+    <Border StrokeThickness="1.5"                 
+                Stroke="#ccc"
+                BackgroundColor="White"
+                Padding="16"                 
+                StrokeShape="RoundRectangle 12">
+
+        <VerticalStackLayout Spacing="30">
+
+            <Label x:Name="TitleLabel"
+                   HorizontalTextAlignment="Center"
+                   TextColor="#595959"
+                   FontAttributes="Bold"
+                   FontSize="16" />
+
+            <Grid RowDefinitions="*,*"
+                  ColumnSpacing="20"
+                  RowSpacing="20"
+                  HorizontalOptions="Fill"
+                  ColumnDefinitions="*,*">
+
+                <VerticalStackLayout Spacing="10" Grid.Row="0" Grid.Column="0" HorizontalOptions="Center" VerticalOptions="Center">
+                    <Label Text="دسته بندی"
+                                          TextColor="#595959"
+                                          FontAttributes="Bold"/>
+                    <Label x:Name="SexLabel" FontSize="28" TextColor="Green" FontFamily="IRANSans" FontAttributes="Bold" Opacity="0.7" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"/>
+                </VerticalStackLayout>
+                <VerticalStackLayout Spacing="10" Grid.Row="0" Grid.Column="1"  HorizontalOptions="Center" VerticalOptions="Center">
+                    <Label Text="ظرفیت باقیمانده"
+                                          TextColor="#595959"
+                                          FontAttributes="Bold"/>
+
+                    <Label x:Name="CapacityLabel" FontFamily="Yekan" 
+                           FontSize="28" 
+                           FontAttributes="Bold" 
+                           Opacity="0.6" 
+                           HorizontalTextAlignment="Center" 
+                           VerticalTextAlignment="Center"/>
+
+                </VerticalStackLayout>
+                <VerticalStackLayout Spacing="10" Grid.Row="1" Grid.Column="0"  HorizontalOptions="Center" VerticalOptions="Center">
+                    <Label Text="گرایش"
+                                          TextColor="#595959"
+                                          FontAttributes="Bold"/>
+                    <Label x:Name="MatchFeldLabel" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"/>
+
+                </VerticalStackLayout>
+                <VerticalStackLayout Spacing="10" Grid.Row="1" Grid.Column="1"  HorizontalOptions="Center" VerticalOptions="Center">
+                    <Label Text="رده سنی"
+                                          TextColor="#595959"
+                                          FontAttributes="Bold"/>
+                    <Label x:Name="AgeLevelLabel" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"/>
+                </VerticalStackLayout>
+            </Grid>
+
+            <VerticalStackLayout Spacing="10">
+                <HorizontalStackLayout Spacing="5">
+                    <Label Text="زمان شروع دوره :"
+                             TextColor="Gray"
+                             FontSize="12"
+                             FontAttributes="Bold"/>
+
+                    <Label x:Name="StartDateLabel" TextColor="Gray"/>
+                </HorizontalStackLayout>
+                <HorizontalStackLayout Spacing="5">
+                    <Label Text="مدت زمان دوره :"
+                             TextColor="Gray"
+                             FontSize="12"
+                             FontAttributes="Bold"/>
+
+                    <Label x:Name="DurationLabel" TextColor="Gray"/>
+                </HorizontalStackLayout>
+                <HorizontalStackLayout Spacing="5">
+                    <Label Text="مهلت ثبت نام :"
+                             TextColor="Gray"
+                             FontSize="12"
+                             FontAttributes="Bold"/>
+
+                    <Label x:Name="RegisterExpireLabel" TextColor="Gray" />
+                </HorizontalStackLayout>
+                <HorizontalStackLayout Spacing="5">
+                    <Label Text="محل برگزاری دوره :"
+                             TextColor="Gray"
+                             FontSize="12"
+                             FontAttributes="Bold"/>
+
+                    <Label x:Name="VenueLabel" TextColor="Gray"/>
+                </HorizontalStackLayout>
+            </VerticalStackLayout>
+            <HorizontalStackLayout HorizontalOptions="Center" VerticalOptions="Center">
+                <HorizontalStackLayout Spacing="5">
+ 
+                    <Label Text="هزینه برگزاری :"
+                           VerticalTextAlignment="Center"   
+                             TextColor="Gray"
+                             FontSize="12"
+                             FontAttributes="Bold"/>
+
+                    <Label x:Name="PriceLabel"
+                           x:DataType="sys:String"
+                           VerticalTextAlignment="Center"
+                           FontSize="20"        
+                           FontFamily="Yekan"
+                           TextColor="#2F54EB"
+                           FontAttributes="Bold" />
+
+                    <Label  Text="ریال"
+                            VerticalTextAlignment="Center"
+                           FontFamily="IRANSansX"
+                           FontSize="12"
+                           TextColor="#2F54EB"
+                           FontAttributes="None" />
+                </HorizontalStackLayout>
+            </HorizontalStackLayout>
+
+            <Grid ColumnDefinitions="50,*"
+                      x:Name="ViewOp"
+                  ColumnSpacing="15"
+                  HorizontalOptions="Fill">
+
+                <ImageButton Source="members.png"
+                             Grid.Column="0"
+                             Clicked="OnMemberListClicked"
+                             WidthRequest="24"
+                             HeightRequest="24"
+                             BackgroundColor="White" />
+
+                <Button Text="ثبت ‌نام"
+                        Grid.Column="1"
+                        HorizontalOptions="Fill"
+                        Clicked="OnRegisterClicked"
+                        BackgroundColor="#2F54EB"
+                        TextColor="White"
+                        CornerRadius="8" />
+
+
+            </Grid>
+        </VerticalStackLayout>
+    </Border>
+
+</ContentView>

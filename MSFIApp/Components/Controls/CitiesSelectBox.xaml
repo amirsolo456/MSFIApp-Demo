@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MSFIApp.Components.Controls.CitiesSelectBox"
+             xmlns:con="clr-namespace:MSFIApp.ViewModels.Converters"
+             xmlns:local="clr-namespace:MSFIApp.Components.Controls"
+             FlowDirection="RightToLeft"
+             x:Name="MyCitiesSelectBox">
+
+    <ContentView.Resources>
+        <con:InverseBoolConverter x:Key="InverseBoolConverter" />
+    </ContentView.Resources>
+
+    <VerticalStackLayout>
+
+        <local:AreaPopup x:Name="AreaPopupControl" 
+                          ZIndex="10"
+                          OnSelected="OnSelectItem"
+                          MinimumHeightRequest="200"
+                          AbsoluteLayout.LayoutBounds="0,0,1,1" 
+                          AbsoluteLayout.LayoutFlags="All"
+                          HorizontalOptions="Fill"
+                          x:DataType="local:CitiesSelectBox"
+                          Areas="{Binding FilteredAreas, Source={x:Reference MyCitiesSelectBox}}" />
+
+        <Grid>
+            <Grid.GestureRecognizers>
+                <TapGestureRecognizer Tapped="OnIconClicked"/>
+            </Grid.GestureRecognizers>
+
+            <local:TextInput
+                  x:Name="SearchEntry"     
+                  OnFocused="SearchEntry_OnFocused_1"
+                  VerticalOptions="Fill"
+                  Placeholder="شهر محل سکونت"                    
+                  NormalBorderColor="Black"                    
+                  Opacity="1"
+                  InputMode="Text"
+                  HorizontalOptions="Fill"
+                  x:DataType="local:CitiesSelectBox"
+                  Text="{Binding SearchText, Source={x:Reference MyCitiesSelectBox}, Mode=TwoWay}">
+
+                <local:TextInput.TrailingContent>
+
+                    <Grid 
+                          HorizontalOptions="Center"
+                          VerticalOptions="Fill"
+                          ColumnSpacing="5"
+                          Margin="0,0,10,0"
+                          ColumnDefinitions="Auto,Auto">
+
+                        <ImageButton Source="x.png"
+                                     ZIndex="10"
+                                     MaximumHeightRequest="50"
+                                     x:DataType="local:CitiesSelectBox"
+                                     IsVisible="{Binding IsDeletehMode, Source={x:Reference MyCitiesSelectBox}}"
+                                     Clicked="OnClearClicked"
+                                     HeightRequest="24"
+                                     WidthRequest="24"
+                                     MaximumWidthRequest="28"
+                                     Grid.Column="0"                       
+                                     VerticalOptions="Center" />
+
+                        <ImageButton Source="{Binding IconSource, Source={x:Reference MyCitiesSelectBox}}"
+                                     x:DataType="local:CitiesSelectBox"
+                                     ZIndex="10"
+                                     Clicked="OnIconClicked"
+                                     MaximumHeightRequest="50"                          
+                                     HeightRequest="24"
+                                     MaximumWidthRequest="34"
+                                     WidthRequest="24"
+                                     Grid.Column="1"
+                                     VerticalOptions="Center" />
+                    </Grid>
+                </local:TextInput.TrailingContent>
+            </local:TextInput>
+        </Grid>
+    </VerticalStackLayout>
+</ContentView>

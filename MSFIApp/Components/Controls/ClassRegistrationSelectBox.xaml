@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MSFIApp.Components.Controls.ClassRegistrationSelectBox">
+    
+    <VerticalStackLayout>
+        <Label Text="نوع حضور"
+                   FontSize="12"
+                   TextColor="Gray"
+                   Margin="5,0" />
+
+        <Picker x:Name="ProvincePicker"
+            Title="انتخاب استان"
+            ItemsSource="{Binding Areas}"
+            ItemDisplayBinding="{Binding Title}"
+            SelectedItem="{Binding SelectedProvince, Mode=TwoWay}"
+            BackgroundColor="#f3f3f3"
+            HeightRequest="48"
+            Margin="0,0,0,10" />
+
+    </VerticalStackLayout>
+</ContentView>

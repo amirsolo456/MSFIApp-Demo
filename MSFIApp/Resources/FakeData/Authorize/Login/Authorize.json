@@ -1,0 +1,29 @@
+{
+  "requests": [
+    {
+      "username": "09109947300",
+      "password": "@Amirsol456456"
+    }
+  ],
+  "responses": [
+    {
+      "status": 1,
+      "id": 226903,
+      "error": null,
+      "entity": {
+        "id": 226903,
+        "userName": "09109947300",
+        "fullName": "امیر جزسلیمانی",
+        "imageUrl": null,
+        "token": "Fake_Token",
+        "type": "temporary",
+        "personId": 234716,
+        "cotchId": null,
+        "credit": 0,
+        "acountName": "موقت",
+        "expire": ""
+      },
+      "total": null
+    }
+  ]
+}

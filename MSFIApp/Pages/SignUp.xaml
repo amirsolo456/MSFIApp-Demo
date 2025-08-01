@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:controls="clr-namespace:MSFIApp.Components.Controls"
+             xmlns:datatp="clr-namespace:MSFIApp.Dtos.User.SignUp"
+             xmlns:pages="clr-namespace:MSFIApp.Pages"
+             x:Class="MSFIApp.Pages.SignUp"
+             Shell.FlyoutBehavior="Disabled" 
+             FlowDirection="RightToLeft"
+             Padding="0"
+             x:Name="Sup"
+             Title="">
+
+    <Grid RowDefinitions="105,*,55" RowSpacing="24" Padding="24">
+        <controls:MessagePopop 
+                    ZIndex="10"
+                    VerticalOptions="Start"
+                    HeightRequest="70"
+                    MinimumWidthRequest="200"
+                    Margin="40,0,40,0"
+                    HorizontalOptions="Fill"
+                    x:Name="ErrorPopup"
+                    BackgroundColor="Black"
+                    TextColor="White"/>
+
+        <VerticalStackLayout Grid.Row="0"
+                             BackgroundColor="White"
+                             VerticalOptions="Start"
+                             HorizontalOptions="StartAndExpand">
+
+            <HorizontalStackLayout                         
+                       VerticalOptions="Start"
+                       HorizontalOptions="StartAndExpand" >
+
+                <controls:IconButton IconSource="backbutton.png"
+                            HorizontalOptions="Fill"
+                            VerticalOptions="CenterAndExpand"
+                            Text=""
+                            TextColor="Transparent"
+                         Padding="5"
+                            Clicked="GetBackClick"/>
+
+
+            </HorizontalStackLayout>
+
+            <VerticalStackLayout HorizontalOptions="Start" Grid.Row="1" >
+                <Label Text="عضویت"
+                                  HorizontalOptions="Start"    
+                                  FontSize="18"
+                                  FontAttributes="Bold"
+                                  HorizontalTextAlignment="Center" />
+
+                <Label Text="لطفا اطلاعات زیر را تکمیل کنید."
+                              FontSize="14"
+                              TextColor="Gray"
+                              HorizontalTextAlignment="Center" />
+
+                <controls:CustomRadioButton     VerticalOptions="Fill"                                        
+                                      Margin="0,10,0,10" 
+                                      Value="{Binding CustomRadioItems, Source={x:Reference Sup},Mode=TwoWay}"
+                                      SelectedValue="{Binding Request.Sex, Source={x:Reference Sup}, Mode=TwoWay}"/>
+            </VerticalStackLayout>
+        </VerticalStackLayout>
+
+
+        <ScrollView Orientation="Vertical" Grid.Row="1" 
+                    VerticalScrollBarVisibility="Never"
+                    VerticalOptions="Fill">
+            <VerticalStackLayout>
+
+
+                <Grid VerticalOptions="FillAndExpand">
+
+                    <VerticalStackLayout 
+                               VerticalOptions="Fill">
+
+                        <controls:TextInput Placeholder="نام"
+                                  Margin="0,10,0,10" 
+                                  Text="{Binding Request.FirstName, Source={x:Reference Sup}}"
+                                  NormalBorderColor="Black"
+                                  Padding="0"   
+                                  VerticalOptions="Center"
+                                  ShowErrore="نام نمیتواند خالی باشد"
+                                  HeightRequest="55"/>
+
+
+                        <controls:TextInput Placeholder="نام‌خانوادگی"
+                                      Margin="0,10,0,10" 
+                                      ShowErrore="نام خانوادگی نمیتواند خالی باشد"
+                                      NormalBorderColor="Black"
+                                      Text="{Binding Request.LastName, Source={x:Reference Sup}, Mode=TwoWay}"
+                                       VerticalOptions="Center"
+                                      HeightRequest="55"/>
+
+
+                        <controls:TextInput Placeholder="کد ملی"
+                                          Margin="0,10,0,10" 
+                                          Text="{Binding Request.NaturalCode, Source={x:Reference Sup}, Mode=TwoWay}"
+                                          NormalBorderColor="Black"
+                                          ShowErrore="کد ملی نمیتواند خالی باشد"
+                                          InputMode="Numeric"                                                
+                                          VerticalOptions="Center"
+                                         HeightRequest="55"/>
+
+
+
+                        <controls:DateInput VerticalOptions="Fill" 
+                             SelectedDateText="{Binding Request.BirthDay, Source={x:Reference Sup}, Mode=TwoWay}"
+                             Margin="0,10,0,10" 
+                             Label="تاریخ تولد"/>
+
+                        <controls:TextInput Placeholder="تلفن همراه"
+                                       Margin="0,20,0,20" 
+                                       Text="{Binding Request.Mobile, Source={x:Reference Sup}, Mode=TwoWay}"  
+                                       NormalBorderColor="Black"                                            
+                                       ShowErrore="تلفن همراه نمیتواند خالی باشد"
+                                       InputMode="Telephone"
+                                       VerticalOptions="Center"/>
+
+
+                    </VerticalStackLayout>
+
+
+                </Grid>
+                <Grid  VerticalOptions="EndAndExpand" 
+                       ZIndex="10"
+                       MinimumHeightRequest="0"
+                       Margin="0,10,0,10">
+                    <controls:AreasSelectBox Title="استان محل سکونت"  
+                                                     x:DataType="pages:SignUp"
+                                                     SelectedItem="{Binding AreaselectedProvince, Source={x:Reference Sup},Mode=TwoWay}"
+                                                     Margin="0,0,0,80"
+                                                     VerticalOptions="End"/>
+
+                    <controls:CitiesSelectBox Title="شهر محل سکونت" 
+                                                      x:DataType="pages:SignUp"
+                                                      AreaID="{Binding areaID, Source={x:Reference Sup},Mode=TwoWay}"
+                                                      SelectedItem="{Binding CitieslectedProvince , Source={x:Reference Sup},Mode=TwoWay}"                                                              
+                                                      VerticalOptions="End"/>
+                </Grid>
+            </VerticalStackLayout>
+        </ScrollView>
+
+
+        <controls:PrimaryButton MainText="ثبت نام"
+                                Grid.Row="2"
+                                MaximumHeightRequest="55"
+                                 BindingContext="this"
+                                 VerticalOptions="EndAndExpand"
+                                 MinimumHeightRequest="55"
+                                IsBusy="{Binding IsButtonBusy, Source={x:Reference Sup},Mode=TwoWay}"
+                                 OnClick="PrimaryButton_OnClick"
+                                 LoadingText="ثبت نام"/>
+
+    </Grid>
+
+
+</ContentPage>

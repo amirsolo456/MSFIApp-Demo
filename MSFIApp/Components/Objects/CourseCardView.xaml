@@ -1,0 +1,325 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MSFIApp.Components.Objects.CourseCardView"
+             xmlns:pages="clr-namespace:MSFIApp.Components.Objects"
+             xmlns:local="clr-namespace:MSFIApp.ViewModels.Converters"
+             xmlns:controls="clr-namespace:MSFIApp.Components.Controls"
+             xmlns:model="clr-namespace:MSFIApp.Dtos.Public.EducationList"
+             x:Name="cCardView">
+
+    <Grid RowDefinitions="50,*">
+
+        <Grid ColumnDefinitions="*,*,*"
+              Grid.Row="0"
+              x:Name="GridParents"
+              VerticalOptions="Start"
+              HeightRequest="50"
+              ColumnSpacing="-1"
+              Padding="0,5"
+              HorizontalOptions="FillAndExpand">
+
+            <Grid HorizontalOptions="Fill" 
+                  Grid.Column="0">
+                <Grid.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="TapGestureShared_Tapped"/>
+                </Grid.GestureRecognizers>
+
+                <Border
+                     BackgroundColor="{Binding SelectedTabIndex, Source={x:Reference cCardView},Converter={StaticResource IndexToBackgroundConverter}, ConverterParameter=0}"
+                    StrokeThickness="1"
+                    Stroke="#030852"
+                    StrokeShape="RoundRectangle 0,8,0,8"
+                    Padding="8,4">
+
+                    <HorizontalStackLayout Spacing="6" VerticalOptions="Center" HorizontalOptions="Center">
+                        <Label Text="مشترک"
+                               FontSize="Small"
+                               FontAttributes="Bold"
+                               TextColor="{Binding SelectedTabIndex, Source={x:Reference cCardView},Converter={StaticResource IndexToTextColorConverter}, ConverterParameter=0}"
+                               VerticalOptions="Center" />
+
+                        <Border
+                            BackgroundColor="White"
+                            WidthRequest="24"
+                            HeightRequest="24"
+                            Stroke="#030852"
+                            StrokeThickness="1"
+                            StrokeShape="RoundRectangle 12"
+                            Padding="0"
+                            HorizontalOptions="Center"
+                            VerticalOptions="Center">
+
+                            <Label Text="{Binding BadgeCounts.Shared, Source={x:Reference cCardView}}"
+                                   TextColor="#030852"
+                                   FontAttributes="Bold"
+                                   FontSize="14"
+                                   FontFamily="Yekan"
+                                   HorizontalOptions="Center"
+                                   VerticalOptions="Center"/>
+                        </Border>
+                    </HorizontalStackLayout>
+                </Border>
+
+            </Grid>
+
+            <!-- آقایان -->
+            <Grid HorizontalOptions="Fill"  Grid.Column="1">
+                <Grid.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="TapGestureMens_Tapped"/>
+                </Grid.GestureRecognizers>
+                <Border
+                    Stroke="#030852"
+                    BackgroundColor="{Binding SelectedTabIndex, Source={x:Reference cCardView}, Converter={StaticResource IndexToBackgroundConverter}, ConverterParameter=1}"
+                    StrokeThickness="1"
+                    Padding="8,4">
+
+                    <HorizontalStackLayout Spacing="6" 
+                                           HorizontalOptions="Center"
+                                           VerticalOptions="Center">
+
+                        <Label Text="آقایان"
+                               FontSize="Small"
+                               FontAttributes="Bold"
+                               TextColor="{Binding SelectedTabIndex, Source={x:Reference cCardView}, Converter={StaticResource IndexToTextColorConverter}, ConverterParameter=1}"
+                               VerticalOptions="Center" />
+                        <Border
+                            BackgroundColor="White"
+                            WidthRequest="24"
+                            HeightRequest="24"
+                            Stroke="#030852"
+                            StrokeThickness="1"
+                            StrokeShape="RoundRectangle 12"
+                            Padding="0"
+                            HorizontalOptions="Center"
+                            VerticalOptions="Center">
+
+                            <Label Text="{Binding BadgeCounts.Men, Source={x:Reference cCardView}}"
+                                   TextColor="#030852"
+                                   FontAttributes="Bold"
+                                   FontFamily="Yekan"
+                                   FontSize="14"
+                                   HorizontalOptions="Center"
+                                   VerticalOptions="Center"/>
+                        </Border>
+                    </HorizontalStackLayout>
+                </Border>
+
+            </Grid>
+
+            <!-- بانوان -->
+            <Grid HorizontalOptions="Fill"  Grid.Column="2">
+                <Grid.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="TapGestureWomens_Tapped"/>
+                </Grid.GestureRecognizers>
+                <Border
+                    Stroke="#030852"
+                    BackgroundColor="{Binding SelectedTabIndex, Source={x:Reference cCardView}, Converter={StaticResource IndexToBackgroundConverter}, ConverterParameter=2}"
+                    StrokeThickness="1"
+                    StrokeShape="RoundRectangle 8,0,8,0"
+                    Padding="8,4">
+
+                    <HorizontalStackLayout Spacing="6" VerticalOptions="Center" HorizontalOptions="Center">
+                        <Label Text="بانوان"
+                               FontAttributes="Bold"
+                               FontSize="Small"
+                               TextColor="{Binding SelectedTabIndex, Source={x:Reference cCardView}, Converter={StaticResource IndexToTextColorConverter}, ConverterParameter=2}"
+                               VerticalOptions="Center" />
+                        <Border
+                            BackgroundColor="White"
+                            WidthRequest="24"
+                            HeightRequest="24"
+                            Stroke="#030852"
+                            StrokeThickness="1"
+                            StrokeShape="RoundRectangle 12"
+                            Padding="0"
+                            HorizontalOptions="Center"
+                            VerticalOptions="Center">
+
+                            <Label Text="{Binding BadgeCounts.Women, Source={x:Reference cCardView}}"
+                                   TextColor="#030852"
+                                   FontAttributes="Bold"
+                                   FontFamily="Yekan"
+                                   FontSize="14"
+                                   HorizontalOptions="Center"
+                                   VerticalOptions="Center"/>
+                        </Border>
+                    </HorizontalStackLayout>
+                </Border>
+
+            </Grid>
+        </Grid>
+
+        <Grid Grid.Row="1">
+
+            <controls:Loading IconSource="loading.png" 
+                              x:Name="myLoading"
+                              BackgroundColor="White"
+                              ZIndex="10"
+                              VerticalOptions="Fill"
+                              IconSize="24"
+                              TryAgainFunc="OnTryAgainClick"
+                              TurnonRetry="{Binding TurnVisible, Source={x:Reference cCardView},Mode=OneWay}"
+                              IsVisibleExternally="{Binding Isloading, Source={x:Reference cCardView},Mode=OneWay}"
+                              IsRunning="True"/>
+
+            <StackLayout Orientation="Vertical"
+                         x:Name="NotFound"
+                                HorizontalOptions="CenterAndExpand"
+                                VerticalOptions="Start">
+
+                <VerticalStackLayout Padding="40"
+                                       x:Name="notfoundbanner"
+                                  VerticalOptions="Center"                                   
+                                  HorizontalOptions="Center"
+                                  Spacing="20">
+
+                    <Image Source="not_found_icon.png" 
+                           WidthRequest="40"
+                           VerticalOptions="Center" 
+                           HorizontalOptions="Center"/>
+
+                    <Label Text="درخواستی یافت نشد!"                         
+                           FontAttributes="Bold"
+                           LineBreakMode="NoWrap"
+                           FontSize="18"
+                           TextColor="Gray"
+                           VerticalOptions="Center"
+                           HorizontalOptions="Center"
+                           HorizontalTextAlignment="Center" />
+
+                </VerticalStackLayout>
+            </StackLayout>
+
+            <Grid x:Name="CardGridParents"   
+                      ColumnDefinitions="Auto,Auto,Auto" 
+                      VerticalOptions="StartAndExpand"
+                      HorizontalOptions="StartAndExpand"
+                      TranslationX="0">
+
+                <Grid.GestureRecognizers>
+                    <PanGestureRecognizer PanUpdated="OnPanUpdated"/>
+                </Grid.GestureRecognizers>
+
+                <ScrollView x:Name="Tab0"
+                                Style="{StaticResource MyCardStyles}"
+                                BackgroundColor="Transparent"
+                                Orientation="Vertical"  
+                                MaximumHeightRequest="600"
+                                VerticalOptions="StartAndExpand"
+                                HorizontalOptions="Start"
+                                Grid.Column="0">
+
+                    <StackLayout Orientation="Vertical"
+                                 Style="{StaticResource MyCardStylesLayout}"
+                                 x:DataType="pages:CourseCardView"
+                                 BindableLayout.ItemsSource="{Binding CurrentList.shared, Source={x:Reference cCardView},Mode=OneWay}"
+                                 VerticalOptions="Center">
+
+                        <StackLayout.GestureRecognizers>
+                            <PanGestureRecognizer PanUpdated="OnPanUpdated"/>
+                        </StackLayout.GestureRecognizers>
+
+                        <BindableLayout.ItemTemplate>
+                            <DataTemplate x:DataType="model:ResponseData">
+                                <controls:CardView Data="{Binding}"
+                                    Margin="0,10,0,0"
+                                    showType="IsDetail"
+                                    VerticalOptions="CenterAndExpand"
+                                    RegisterCommand="{Binding RegisterCommand, Source={x:Reference cCardView}}"
+                                    MemberListCommand="{Binding MemberListCommand, Source={x:Reference cCardView}}" />
+                            </DataTemplate>
+                        </BindableLayout.ItemTemplate>
+
+                    </StackLayout>
+                </ScrollView>
+
+                <ScrollView x:Name="Tab1"
+                                BackgroundColor="Transparent"
+                                Style="{StaticResource MyCardStyles}"
+                                Orientation="Vertical"  
+                                MaximumHeightRequest="600"
+                                VerticalOptions="StartAndExpand"
+                                Grid.Column="1">
+
+                    <StackLayout Orientation="Vertical"
+                                 Style="{StaticResource MyCardStylesLayout}"
+                                 ZIndex="10"
+                                 x:DataType="pages:CourseCardView"
+                                 BindableLayout.ItemsSource="{Binding CurrentList.womens, Source={x:Reference cCardView},Mode=OneWay}"
+                                 VerticalOptions="Center">
+
+                        <StackLayout.GestureRecognizers>
+                            <PanGestureRecognizer PanUpdated="OnPanUpdated"/>
+                        </StackLayout.GestureRecognizers>
+
+                        <BindableLayout.ItemTemplate>
+                            <DataTemplate  x:DataType="model:ResponseData">
+                                <controls:CardView Data="{Binding .}"
+                                    Margin="0,10,0,0"
+                                    showType="IsDetail"
+                                    VerticalOptions="CenterAndExpand"
+                                    RegisterCommand="{Binding RegisterCommand, Source={x:Reference cCardView}}"
+                                    MemberListCommand="{Binding MemberListCommand, Source={x:Reference cCardView}}" />
+                            </DataTemplate>
+                        </BindableLayout.ItemTemplate>
+
+                    </StackLayout>
+                </ScrollView>
+
+                <ScrollView x:Name="Tab2"
+                            Style="{StaticResource MyCardStyles}"
+                             BackgroundColor="Transparent"
+                             Orientation="Vertical"  
+                             MaximumHeightRequest="600"
+                             VerticalOptions="StartAndExpand"
+                             Grid.Column="2">
+
+                    <StackLayout Orientation="Vertical"
+                                 ZIndex="10"
+                                 Style="{StaticResource MyCardStylesLayout}"
+                                 x:DataType="pages:CourseCardView"
+                                 BindableLayout.ItemsSource="{Binding CurrentList.mens, Source={x:Reference cCardView},Mode=OneWay}"
+                                 VerticalOptions="Center">
+
+                        <StackLayout.GestureRecognizers>
+                            <PanGestureRecognizer PanUpdated="OnPanUpdated"/>
+                        </StackLayout.GestureRecognizers>
+
+                        <BindableLayout.ItemTemplate>
+                            <DataTemplate x:DataType="model:ResponseData">
+                                <controls:CardView Data="{Binding}"
+                                    Margin="0,10,0,0"
+                                    showType="IsDetail"
+                                    VerticalOptions="CenterAndExpand"
+                                    RegisterCommand="{Binding RegisterCommand, Source={x:Reference cCardView}}"
+                                    MemberListCommand="{Binding MemberListCommand, Source={x:Reference cCardView}}" />
+                            </DataTemplate>
+                        </BindableLayout.ItemTemplate>
+
+                    </StackLayout>
+                </ScrollView>
+            </Grid>
+        </Grid>
+    </Grid>
+
+    <ContentView.Resources>
+        <local:NullToBoolConverter x:Key="NullToBoolConverter"/>
+        <local:IndexToBackgroundConverter x:Key="IndexToBackgroundConverter" />
+        <local:IndexToTextColorConverter x:Key="IndexToTextColorConverter" />
+        
+        <Style TargetType="ScrollView" x:Key="MyCardStyles">
+ 
+            <Setter Property="WidthRequest" Value="379"/>
+            <Setter Property="Margin" Value="0"/>
+ 
+        </Style>
+
+        <Style TargetType="StackLayout" x:Key="MyCardStylesLayout">
+
+            <Setter Property="WidthRequest" Value="350"/>
+            <Setter Property="HorizontalOptions" Value="Start"/>
+
+        </Style>
+    </ContentView.Resources>
+</ContentView>

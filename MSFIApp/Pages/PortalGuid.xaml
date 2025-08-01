@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:controls="clr-namespace:MSFIApp.Components.Controls"
+             xmlns:models="clr-namespace:MSFIApp.Dtos.Settings.PortalGuid"
+             xmlns:vm="clr-namespace:MSFIApp.ViewModels.Settings.PortalGuid"
+             x:Class="MSFIApp.Pages.PortalGuid"
+             FlowDirection="RightToLeft"
+             Shell.FlyoutBehavior="Disabled" 
+             x:Name="pGuid"
+             Title="">
+
+    <ContentPage.BindingContext>
+        <vm:PortalGuidViewModel/>
+    </ContentPage.BindingContext>
+
+    <Grid VerticalOptions="StartAndExpand" RowDefinitions="60,*" Padding="20,0,20,0">
+        <controls:MessagePopop 
+                    ZIndex="10"
+                    VerticalOptions="Start"
+                    HeightRequest="70"
+                    MinimumWidthRequest="200"
+                    Margin="40,0,40,0"
+                    HorizontalOptions="Fill"
+                    x:Name="ErrorPopup"
+                    BackgroundColor="Black"
+                    TextColor="White"/>
+        
+        <HorizontalStackLayout Grid.Row="0" 
+                               HorizontalOptions="Fill" >
+
+
+
+            <controls:IconButton IconSource="backbutton.png"
+                                 VerticalOptions="Center"
+                                 Text="راهنمای پرتال"
+                                 TextColor="Black"
+                                 FontAttributes="Bold"
+                                 FontSize="18"
+                                 Clicked="IconButton_Clicked"/>
+
+        </HorizontalStackLayout>
+
+        <Grid Grid.Row="1" >
+
+            <controls:Loading IconSource="loading.png"                               
+                              x:Name="myLoading"
+                              BackgroundColor="White"
+                              ZIndex="10"
+                              TurnonRetry="{Binding TurnVisible,Mode=OneWay}"
+                              Opacity="0.7"
+                              VerticalOptions="Fill"
+                              IconSize="24"
+                              IsVisibleExternally="{Binding IsBusy,Mode=OneWay}"
+                              TryAgainFunc="OnTryAgainClick"
+                              IsRunning="True"/>
+            <ScrollView >
+
+                <VerticalStackLayout 
+                        x:DataType="vm:PortalGuidViewModel"
+                        BindableLayout.ItemsSource="{Binding Response}"
+                        Padding="10"
+                        Spacing="15">
+
+
+                    <BindableLayout.ItemTemplate>
+                        <DataTemplate x:DataType="models:ResponseData">
+                            <Grid>
+
+                                <controls:HyperlinkLabel TextColor="#595959" 
+                                                     UrlAdress="{Binding Url}"
+                                                     Text="{Binding Title}"/>
+                            </Grid>
+
+                        </DataTemplate>
+                    </BindableLayout.ItemTemplate>
+
+                </VerticalStackLayout>
+            </ScrollView>
+        </Grid>
+    </Grid>
+
+</ContentPage>

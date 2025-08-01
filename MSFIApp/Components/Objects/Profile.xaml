@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:MSFIApp.Components.Controls"
+             xmlns:view="clr-namespace:MSFIApp.Components.Objects"
+             x:Class="MSFIApp.Components.Objects.Profile">
+
+    <Grid RowDefinitions="Auto,150,200" 
+          BackgroundColor="White"
+          ZIndex="1000"
+          VerticalOptions="FillAndExpand"
+          HorizontalOptions="FillAndExpand">
+        
+        <VerticalStackLayout Grid.Row="0">
+            <local:ProfilePictureFrame />
+            <Label Text="وحید عبدی" 
+                       HorizontalTextAlignment="Center" 
+                       FontFamily="IRANSans" 
+                       FontAttributes="Bold" 
+                       FontSize="16" />
+
+            <Label Text="09109947300" CharacterSpacing="0.1"
+                       HorizontalTextAlignment="Center" 
+                       FontFamily="Yekan" 
+                       FontSize="16" />
+        </VerticalStackLayout>
+
+        <Grid Grid.Row="1" RowDefinitions="*,Auto" HorizontalOptions="Fill">
+            
+            <ScrollView Orientation="Vertical" 
+                        Grid.Row="0"
+                        HorizontalOptions="FillAndExpand">
+
+                <VerticalStackLayout>
+                    <local:IconButton Text="داشبرد" 
+                                  HorizontalOptions="Start"
+                                  HeightRequest="75"
+                                  IconSource="home.png"
+                                  Clicked="IconButton_Clicked"
+                                  x:DataType="view:Profile"
+                                  TextColor="{Binding color}"/>
+
+                    <local:ExpansionPannel />
+                </VerticalStackLayout>
+
+            </ScrollView>
+
+            <Grid Grid.Row="1" HorizontalOptions="StartAndExpand">
+                <local:ExpansionPannel 
+                        HorizontalOptions="Fill"
+                        IconSource="profile.png"
+                        HeaderText="پروفایل"/>
+                
+                <local:IconButton 
+                    HorizontalOptions="Fill"
+                    IconSource="signout.png"
+                    TextColor="Black"
+                    FontAttributes="Bold"
+                    ImageSize="45"
+                    Clicked="SignOut_Clicked"
+                    Text="خروج"/>
+                    
+            </Grid>
+        </Grid>
+
+    </Grid>
+
+</ContentView>

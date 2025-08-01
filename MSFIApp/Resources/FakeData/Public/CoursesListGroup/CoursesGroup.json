@@ -1,0 +1,38 @@
+{
+  "requests": [
+    {
+      "Id" :1
+    }
+  ],
+  "responses": [
+    {
+      "status": 1,
+      "id": 0,
+      "error": null,
+      "entity": [
+        {
+          "id": 5,
+          "title": "صعودهای ورزشی(سنگنوردی داخل سالن)",
+          "displayTitle": null,
+          "titleEn": null,
+          "additionalData": null
+        },
+        {
+          "id": 9,
+          "title": "ناوبری",
+          "displayTitle": null,
+          "titleEn": null,
+          "additionalData": null
+        },
+        {
+          "id": 14,
+          "title": "اردو",
+          "displayTitle": null,
+          "titleEn": null,
+          "additionalData": null
+        }
+      ],
+      "total": 1
+    }
+  ]
+}

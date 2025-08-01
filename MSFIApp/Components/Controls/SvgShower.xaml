@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MSFIApp.Components.Controls.SvgShower"
+             x:Name="This">
+    <Grid>
+        <Image
+            x:Name="ImageViewer"
+            Aspect="AspectFit"
+            WidthRequest="{Binding ImageWidth, Source={x:Reference This}}"
+            HeightRequest="{Binding ImageHeight, Source={x:Reference This}}"
+            />
+    </Grid>
+</ContentView>

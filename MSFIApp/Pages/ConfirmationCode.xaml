@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MSFIApp.Pages.ConfirmationCode"
+             xmlns:controls="clr-namespace:MSFIApp.Components.Controls"
+             xmlns:pages="clr-namespace:MSFIApp.Pages"
+             Shell.FlyoutBehavior="Disabled" 
+             FlowDirection="RightToLeft"
+             Padding="0"
+             x:Name="PassChange"
+             Title="">
+    <Grid>
+
+        <controls:MessagePopop 
+                    ZIndex="10"
+                    VerticalOptions="Start"
+                    HeightRequest="70"
+                    MinimumWidthRequest="200"
+                    Margin="40,0,40,0"
+                    HorizontalOptions="Fill"
+                    x:Name="ErrorPopup"
+                    BackgroundColor="Black"
+                    TextColor="White"/>
+        
+        <Grid RowDefinitions="Auto,*,Auto" 
+               RowSpacing="20"
+               Padding="20">
+
+            <VerticalStackLayout Grid.Row="0" Spacing="15">
+
+
+                <controls:IconButton IconSource="backbutton.png"
+                              HorizontalOptions="Start"
+                              VerticalOptions="Start"
+                              TextColor="Black"
+                              FontAttributes="Bold"
+                              FontSize="18"
+                              Clicked="IconButton_Clicked" />
+
+                <VerticalStackLayout>
+                    <controls:TittleLabel Text="تاببد"
+                           FontAttributes="Bold"
+                           TextColor="Black"
+                           FontSize="18"/>
+
+                    <Grid ColumnDefinitions="*,65" HorizontalOptions="Fill">
+                        <controls:TittleLabel Text="{Binding UserPhonNumber, Source={x:Reference PassChange}}"
+                                              x:DataType="pages:ConfirmationCode"
+                                              FontAttributes="None"
+                                              Grid.Column="0"
+                                              HorizontalOptions="Fill"
+                                              TextColor="Gray"
+                                              FontSize="12"/>
+
+                        <controls:LinkLabel Text="تغییر شماره"
+                                             Grid.Column="1"
+                                           FontAttributes="None"
+                                           TextColor="#2F54EB"
+                                           HorizontalOptions="EndAndExpand"
+                                           TextAlignment="End"
+                                           FontSize="12"
+                                           Clicked="ChangeNumber"/>
+
+                    </Grid>
+
+                </VerticalStackLayout>
+
+            </VerticalStackLayout>
+
+            <Grid RowDefinitions="140,*" 
+                  RowSpacing="20"
+                  VerticalOptions="Start"
+                  MinimumHeightRequest="80"  
+                  Grid.Row="1">
+                
+                <controls:ConfirmationCodeInput 
+                        Code="{Binding ConfCode, Source={x:Reference PassChange},Mode=TwoWay}"
+                        x:DataType="pages:ConfirmationCode"
+                        VerticalOptions="FillAndExpand"
+                        ZIndex="10"
+                        Grid.Row="0"
+                        HorizontalOptions="CenterAndExpand"
+                        x:Name="OtpEntry"/>
+
+                <Grid Grid.Row="1">
+                    
+                    <controls:PrimaryButton MainText="درخواست مجدد"
+                                            LoadingText="a"
+                                            x:DataType="pages:ConfirmationCode"
+                                            IsVisible="{Binding LabelVisible, Source={x:Reference PassChange},Mode=TwoWay}"
+                                            LoadingColor="#2F54EB"
+                                            HorizontalOptions="Center"
+                                            NormalBackgroundColor="Transparent"
+                                            LoadingBackgroundColor="Transparent"
+                                            MinimumHeightRequest="20"
+                                            TextColor="#595959"
+                                            OnClick="RequestAgainCode"/>
+
+                    <controls:CounterLabel x:DataType="pages:ConfirmationCode" 
+                                           StartCountdown="{Binding ShouldStartTimer, Source={x:Reference PassChange},Mode=TwoWay}"/>
+                </Grid>
+            </Grid>
+
+            <controls:PrimaryButton 
+                 Grid.Row="2"
+                 MainText="تایید"
+                 LoadingText="تایید"
+                 HorizontalOptions="Fill"
+                 HeightRequest="48"
+                 IsEnabled="True"
+                 NormalBackgroundColor="#2F54EB"
+                 LoadingBackgroundColor="#2F54EB"
+                 OnClick="PrimaryButton_OnClick"/>
+        </Grid>
+    </Grid>
+</ContentPage>

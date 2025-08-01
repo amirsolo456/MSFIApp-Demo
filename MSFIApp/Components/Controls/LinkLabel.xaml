@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MSFIApp.Components.Controls.LinkLabel"
+              x:Name="LinkLblRoot">
+    <Label 
+        x:Name="MainLabel"
+        Text="{Binding Text, Source={x:Reference LinkLblRoot}}"
+        TextColor="{Binding TextColor, Source={x:Reference LinkLblRoot}}"
+        FontAttributes="{Binding FontAttributes, Source={x:Reference LinkLblRoot}}"
+        FontSize="{Binding FontSize, Source={x:Reference LinkLblRoot}}"
+        FontFamily="IRANSans"
+        HorizontalTextAlignment="{Binding TextAlignment, Source={x:Reference LinkLblRoot}}"
+        VerticalOptions="Center">
+
+        <Label.GestureRecognizers>
+            <TapGestureRecognizer Tapped="OnLabelTapped" NumberOfTapsRequired="1" />
+        </Label.GestureRecognizers>
+
+    </Label>
+</ContentView>

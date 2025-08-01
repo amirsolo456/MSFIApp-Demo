@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MSFIApp.Pages.StartLoading">
+    
+    <Grid x:Name="MainGrid">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+
+       
+        <Image x:Name="Logo" 
+               Opacity="1"
+               Source="logosingle.png" 
+               WidthRequest="160"
+               HeightRequest="100" />
+
+         
+        <ActivityIndicator x:Name="Loader"
+                         IsRunning="True"
+                         IsVisible="False"
+                         Opacity="0"
+                         Color="Gray"
+                         WidthRequest="40"
+                         HeightRequest="40"
+                         HorizontalOptions="Center"
+                         VerticalOptions="Center"
+                         TranslationY="70" />
+
+        <Label x:Name="VersionLabel"
+             Grid.Row="1"
+             Text="نسخه: 1.0.0"
+             FontSize="14"
+             TextColor="Gray"
+             HorizontalOptions="Center"
+             Margin="0,20" />
+    </Grid>
+</ContentPage>

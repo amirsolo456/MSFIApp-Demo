@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MSFIApp.Components.Controls.PrimaryButton"       
+             x:Name="PmThis">
+    <Border
+        x:Name="ButtonFrame"
+        HorizontalOptions="Fill"
+        Padding="10"
+        Stroke="Transparent"
+        StrokeShape="RoundRectangle 8"
+        IsVisible="{Binding IsVisible,Source={x:Reference Name=PmThis}}"
+        BackgroundColor="{Binding NormalBackgroundColor, Source={x:Reference Name=PmThis}}"
+        IsEnabled="{Binding IsEnabled, Source={x:Reference Name=PmThis}}"
+        VerticalOptions="FillAndExpand">
+
+        <Border.Triggers>
+            <Trigger TargetType="Border" Property="IsEnabled" Value="False">
+                <Setter Property="Opacity" Value="0.4"/>
+            </Trigger>
+            <Trigger TargetType="Border" Property="IsEnabled" Value="True">
+                <Setter Property="Opacity" Value="1"/>
+            </Trigger>
+        </Border.Triggers>
+        
+        <Grid>
+            <HorizontalStackLayout Spacing="8" VerticalOptions="Center" HorizontalOptions="Center">
+                <ActivityIndicator x:Name="LoadingIndicator" IsVisible="False" IsRunning="False" Color="{Binding LoadingColor,Source={x:Reference Name=PmThis}}" WidthRequest="20" HeightRequest="20" VerticalOptions="Center" />
+
+                <Label x:Name="ButtonLabel" 
+                       TextColor="{Binding TextColor, Source={x:Reference Name=PmThis}}" 
+                       VerticalOptions="Center" />
+            </HorizontalStackLayout>
+
+
+        </Grid>
+        
+        <Border.GestureRecognizers>
+            <TapGestureRecognizer Tapped="OnTapped" />
+        </Border.GestureRecognizers>
+    </Border>
+</ContentView>

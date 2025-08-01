@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MSFIApp.Components.Controls.CustomCheckBox"
+             x:Name="CustomCheckBoxRoot">
+
+    <HorizontalStackLayout Spacing="5" HorizontalOptions="Start">
+
+        <Grid WidthRequest="32" HeightRequest="32" Scale="0.9">
+            <!-- تصویر ثابت در پس‌زمینه -->
+            <Image Source="unchecked.png"
+                   WidthRequest="32"
+                   HeightRequest="32" />
+
+            <!-- تصویر overlay -->
+            <Image x:Name="CheckedOverlay"
+                   Source="checked.png"
+                   WidthRequest="24"
+                   HeightRequest="25"
+                   HorizontalOptions="Center"
+                   VerticalOptions="Center"
+                   Scale="0"
+                   IsVisible="False" />
+
+            <Grid.GestureRecognizers>
+                <TapGestureRecognizer Tapped="OnTapped" />
+            </Grid.GestureRecognizers>
+        </Grid>
+
+        <Label Text="{Binding LabelText, Source={x:Reference CustomCheckBoxRoot}}"
+               x:Name="CheckLbl"
+               VerticalOptions="Center"
+               TextColor="Black"/>
+
+    </HorizontalStackLayout>
+</ContentView>
+

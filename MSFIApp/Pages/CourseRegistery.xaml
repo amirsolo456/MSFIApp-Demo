@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MSFIApp.Pages.CourseRegistery"
+             xmlns:controls="clr-namespace:MSFIApp.Components.Controls"
+             xmlns:pages="clr-namespace:MSFIApp.Pages"
+             xmlns:obj="clr-namespace:MSFIApp.Components.Objects"
+             Shell.FlyoutBehavior="Disabled" 
+             FlowDirection="RightToLeft"
+             x:Name="Courereg"
+             Title="">
+
+    <Grid x:Name="mainpage" 
+          Margin="20,0,20,0"
+          RowDefinitions="50,*" 
+          RowSpacing="10"
+          BackgroundColor="White"
+          VerticalOptions="Fill">
+
+        <HorizontalStackLayout Grid.Row="0" 
+                               HorizontalOptions="Fill">
+
+            <controls:IconButton IconSource="backbutton.png"
+                                 Clicked="IconButton_Clicked"                                
+                                 VerticalOptions="Center"
+                                 Text=""
+                                 TextColor="Transparent"/>
+
+
+        </HorizontalStackLayout>
+
+        <Grid Grid.Row="1">
+
+            <controls:CardView Data="{Binding EduList, Source={x:Reference Courereg}}"
+                                   showType="IsView"
+                                   VerticalOptions="Start"
+                                   Margin="0,10,0,0"
+                                   x:DataType="pages:CourseRegistery"
+                                   RegisterCommand="{Binding RegisterCommand, Source={x:Reference Courereg}}"
+                                   MemberListCommand="{Binding MemberListCommand, Source={x:Reference Courereg}}" />
+
+            <obj:CourseRegisteryFooter ZIndex="10"
+                                           VerticalOptions="End" />
+
+        </Grid>
+    </Grid>
+</ContentPage>

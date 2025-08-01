@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MSFIApp.Components.Controls.TextInput"
+             xmlns:local="clr-namespace:MSFIApp.Components.Controls"
+             x:Name="EntryTxtRoot">
+
+    <VerticalStackLayout >
+        
+        <Grid Padding="0" RowDefinitions="Auto, Auto" ColumnSpacing="5">
+            <Label x:Name="FloatingLabel"
+               Text="{Binding Placeholder, Source={x:Reference EntryTxtRoot}}"
+               FontFamily="IRANSans"
+               TranslationY="-20"
+               FontSize="14"
+               Margin="10,0,10,0"
+               Padding="10,0,10,0"
+               Grid.Row="0"
+               TextColor="#2F54EB"
+               Opacity="0"
+               HorizontalOptions="Start"              
+               BackgroundColor="White"
+               VerticalOptions="Start"
+               ZIndex="1"/>
+
+            <Border StrokeShape="RoundRectangle 8" 
+                    IsVisible="{Binding hasBorder, Source={x:Reference EntryTxtRoot}}"
+                    x:Name="TxtEntryBorder"
+                    Stroke="Gray"
+                    Opacity="0.5"
+                    StrokeThickness="1">
+
+                <Grid Padding="10,0,0,0" ColumnDefinitions="*,Auto">
+                    <Entry x:Name="MainEntry"
+                           Grid.Column="0"
+                           FlowDirection="RightToLeft"
+                           Placeholder="{Binding Placeholder, Source={x:Reference EntryTxtRoot}}"
+                           Text="{Binding Text, Source={x:Reference EntryTxtRoot}, Mode=TwoWay}" 
+                           VerticalOptions="Center"
+                           HorizontalOptions="FillAndExpand"
+                           Keyboard="{Binding InputMode, Source={x:Reference EntryTxtRoot}}"
+                           PlaceholderColor="Gray"
+                           IsEnabled="True"
+                           IsSpellCheckEnabled="True"
+                           Focused="Entry_Focused"
+                           Unfocused="Entry_Unfocused"
+                           TextChanged="Entry_TextChanged"
+                           Completed="Entry_Completed">
+
+                        <Entry.Triggers>
+                            <Trigger TargetType="Entry" Property="IsFocused" Value="True">
+                                <Setter Property="TextColor" Value="#2F54EB" />
+                                <Setter Property="Placeholder" Value="" />
+                            </Trigger>
+                            <Trigger TargetType="Entry" Property="IsFocused" Value="False">
+                                <Setter Property="TextColor" Value="#595959" />
+                            </Trigger>
+                        </Entry.Triggers>
+                    </Entry>
+
+                    <ContentView Grid.Column="1"
+                           VerticalOptions="Center"
+                           Content="{Binding TrailingContent, Source={x:Reference EntryTxtRoot}}" />
+                </Grid>
+            </Border>
+
+        </Grid>
+        <Label Text="{Binding ShowErrore, Source={x:Reference EntryTxtRoot}}"
+               x:Name="ErroreLbl"
+               IsVisible="False"
+               FontSize="10"
+               FontFamily="IRANSansX"
+               TextColor="#ff4d4f"
+               Margin="0,0,0,0"
+               HorizontalTextAlignment="Start"/>
+    </VerticalStackLayout>
+</ContentView>
+ 

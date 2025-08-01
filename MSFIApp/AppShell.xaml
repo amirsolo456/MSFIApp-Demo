@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Shell
+    x:Class="MSFIApp.AppShell"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+    xmlns:local="clr-namespace:MSFIApp"
+    xmlns:pages="clr-namespace:MSFIApp.Pages"
+    Shell.FlyoutBehavior="Disabled"
+    FlowDirection="RightToLeft"
+    Title="MSFIApp">
+
+    <Shell.Behaviors>
+        <toolkit:StatusBarBehavior StatusBarColor="White" StatusBarStyle="DarkContent" />
+        <toolkit:TouchBehavior HoveredBackgroundColor="Blue" />
+    </Shell.Behaviors>
+    
+    <ShellContent    
+         ContentTemplate="{DataTemplate pages:StartLoading}"
+         Route="StartLoading" />
+    
+    <ShellContent
+        ContentTemplate="{DataTemplate pages:Main}"
+        Route="MainPage" />
+
+    <ShellContent
+        ContentTemplate="{DataTemplate pages:Login}"
+        Route="Login" />
+
+    <ShellContent
+        ContentTemplate="{DataTemplate pages:PortalGuid}"
+        Route="PortalGuid" />
+
+    <ShellContent
+        ContentTemplate="{DataTemplate pages:PasswordRecovery}"
+        Route="PasswordRecovery" />
+
+    <ShellContent
+        ContentTemplate="{DataTemplate pages:ConfirmationCode}"
+        Route="ConfirmationCode" />
+
+    <ShellContent
+        ContentTemplate="{DataTemplate pages:Courses}"
+        Route="Courses" />
+
+    <ShellContent
+        ContentTemplate="{DataTemplate pages:CourseRegistery}"
+        Route="CourseRegistery" />
+
+    <ShellContent
+        ContentTemplate="{DataTemplate pages:leaguesList}"
+        Route="leaguesList" />
+
+    <ShellContent
+        ContentTemplate="{DataTemplate pages:SignUp}"
+        Route="SignUp" />
+
+    <ShellContent
+        ContentTemplate="{DataTemplate pages:PasswordMaking}"
+        Route="PasswordMaking" />
+</Shell>

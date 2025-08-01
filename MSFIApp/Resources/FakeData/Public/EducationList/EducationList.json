@@ -1,0 +1,85 @@
+{
+  "requests": [
+    {
+      "Id": 5
+    }
+  ],
+  "responses": [
+    {
+      "status": 1,
+      "id": 0,
+      "error": null,
+      "entity": [
+        {
+          "id": 7395,
+          "className": "بازآموزی مربیان درجه 3 صعودهای ورزشی",
+          "startDate": "1404/06/20",
+          "startDateOrg": "2025-09-11T00:00:00",
+          "duration": 2,
+          "sexName": "زن",
+          "sexId": 1,
+          "registerExpire": "1404/06/12",
+          "registerExpireOrg": "2025-09-03T00:00:00",
+          "venueName": "همدان",
+          "price": 30000000,
+          "remainCapacity": 38,
+          "capacity": 40,
+          "matchAgeLevelName": null,
+          "matchFeldName": null
+        },
+        {
+          "id": 7396,
+          "className": "بازآموزی مربیان درجه 3 صعودهای ورزشی",
+          "startDate": "1404/06/20",
+          "startDateOrg": "2025-09-11T00:00:00",
+          "duration": 2,
+          "sexName": "مرد",
+          "sexId": 2,
+          "registerExpire": "1404/06/12",
+          "registerExpireOrg": "2025-09-03T00:00:00",
+          "venueName": "همدان",
+          "price": 30000000,
+          "remainCapacity": 40,
+          "capacity": 40,
+          "matchAgeLevelName": null,
+          "matchFeldName": null
+        },
+        {
+          "id": 7397,
+          "className": "آزمون ورودی مربیگری درجه 3 سرعت صعودهای ورزشی",
+          "startDate": "1404/06/19",
+          "startDateOrg": "2025-09-10T00:00:00",
+          "duration": 1,
+          "sexName": "مرد",
+          "sexId": 2,
+          "registerExpire": "1404/06/11",
+          "registerExpireOrg": "2025-09-02T00:00:00",
+          "venueName": "همدان",
+          "price": 15000000,
+          "remainCapacity": 18,
+          "capacity": 20,
+          "matchAgeLevelName": null,
+          "matchFeldName": null
+        },
+        {
+          "id": 7398,
+          "className": "آزمون ورودی مربیگری درجه 3 سرعت صعودهای ورزشی",
+          "startDate": "1404/06/19",
+          "startDateOrg": "2025-09-10T00:00:00",
+          "duration": 1,
+          "sexName": "زن",
+          "sexId": 1,
+          "registerExpire": "1404/06/11",
+          "registerExpireOrg": "2025-09-02T00:00:00",
+          "venueName": "همدان",
+          "price": 15000000,
+          "remainCapacity": 20,
+          "capacity": 20,
+          "matchAgeLevelName": null,
+          "matchFeldName": null
+        }
+      ],
+      "total": 1
+    }
+  ]
+}

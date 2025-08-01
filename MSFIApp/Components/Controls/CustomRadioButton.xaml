@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Name="myRadBtn"
+             x:Class="MSFIApp.Components.Controls.CustomRadioButton">
+
+    <ContentView.Resources>
+        <ControlTemplate x:Key="RadioButtonTemplate">
+
+            <Border Stroke="#1677ff"
+                    StrokeThickness="1"
+                    StrokeShape="RoundRectangle 15"                  
+                    HeightRequest="23"
+                    WidthRequest="23"
+                    HorizontalOptions="Center"
+                    VerticalOptions="Center">
+
+                <VisualStateManager.VisualStateGroups>
+                    <VisualStateGroupList>
+                        <VisualStateGroup x:Name="CheckedStates">
+                            <VisualState x:Name="Checked">
+                                <VisualState.Setters>
+
+                                    <Setter TargetName="check"
+                                            Property="Opacity"
+                                            Value="1" />
+                                </VisualState.Setters>
+                            </VisualState>
+                            <VisualState x:Name="Unchecked">
+                                <VisualState.Setters>
+                                    <Setter TargetName="check"
+                                            Property="Opacity"
+                                            Value="0" />
+                                </VisualState.Setters>
+                            </VisualState>
+
+                        </VisualStateGroup>
+                    </VisualStateGroupList>
+                </VisualStateManager.VisualStateGroups>
+
+                <Grid 
+                      BackgroundColor="Transparent"                                
+                      VerticalOptions="Center"
+                      Padding="2"
+                      HorizontalOptions="Center">
+                    
+                    <Ellipse   StrokeThickness="2"
+                                 Fill="White" 
+                                 HorizontalOptions="Fill"
+                                 VerticalOptions="Fill" />
+
+
+                    <Ellipse x:Name="check"  
+                             ZIndex="1"
+                                 Stroke="White"
+                                 StrokeThickness="1"
+                                 Fill="#1677ff"
+                                 HorizontalOptions="Fill"
+                                 VerticalOptions="Fill" />
+
+
+                    <!--<Grid.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped" />
+                    </Grid.GestureRecognizers>-->
+                </Grid>
+            </Border>
+        </ControlTemplate>
+
+        <Style TargetType="RadioButton" x:Key="MyRadio">
+            <Setter Property="ControlTemplate"
+                    Value="{StaticResource RadioButtonTemplate}" />
+        </Style>
+    </ContentView.Resources>
+
+    <HorizontalStackLayout Spacing="5" 
+                           HorizontalOptions="Fill"
+                           x:Name="RadioGroups"
+                           RadioButtonGroup.GroupName="MyRadioGroupItems"
+                           VerticalOptions="Center">
+        <!--<RadioButton  
+                     IsChecked="{Binding IsChecked, Source={x:Reference myRadBtn},Mode=TwoWay}"
+                     Style="{StaticResource MyRadio}">
+
+        </RadioButton>
+        <Label Text="{Binding LabelText, Source={x:Reference myRadBtn},Mode=TwoWay}"/>-->
+    </HorizontalStackLayout>
+</ContentView>

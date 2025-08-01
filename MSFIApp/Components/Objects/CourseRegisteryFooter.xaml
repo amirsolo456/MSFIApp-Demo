@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MSFIApp.Components.Objects.CourseRegisteryFooter"
+             xmlns:controls="clr-namespace:MSFIApp.Components.Controls">
+
+    <VerticalStackLayout       HeightRequest="300" VerticalOptions="FillAndExpand">
+
+        <Grid x:Name="BottomDrawer"              
+             RowDefinitions="50,*"
+             BackgroundColor="White"       
+             VerticalOptions="Start"         
+             Margin="0" 
+             HorizontalOptions="FillAndExpand">
+
+            <ImageButton x:Name="ArrowIcon"
+                      Grid.Row="0"
+                       BackgroundColor="Blue"
+                      MaximumWidthRequest="14" 
+                      MaximumHeightRequest="14"
+                      Clicked="ArrowIcon_Clicked"
+                      HorizontalOptions="Center"
+                      Rotation="{Binding ArrowRotation}" >
+
+            </ImageButton>
+
+            <StackLayout Orientation="Vertical"  Grid.Row="1">
+                <controls:AreasSelectBox />
+                <controls:ClassRegistrationSelectBox/>
+
+            </StackLayout>
+
+        </Grid>
+
+        <VerticalStackLayout BackgroundColor="White" 
+                             AnchorY="0"
+                             TranslationY="-20"
+                             MinimumHeightRequest="200" 
+                             Spacing="20"
+                             ZIndex="1" HorizontalOptions="Fill">
+
+            <HorizontalStackLayout Spacing="5">
+
+                <controls:CustomCheckBox />
+                <HorizontalStackLayout>
+                    <Label Text="با"/>
+                    <Label Text="قوانین و مقررات "/>
+                    <Label Text="موافقم"/>
+                </HorizontalStackLayout>
+            </HorizontalStackLayout>
+
+            <controls:PrimaryButton MainText="ثبت نام غیر مجاز"
+                      NormalBackgroundColor="DarkGray"
+                      TextColor="White"/>
+        </VerticalStackLayout>
+    </VerticalStackLayout>
+</ContentView>
