@@ -23,17 +23,15 @@ A mobile-first cross-platform app built with .NET MAUI for managing mountain cli
 ## 📸 Screenshots
 
 | Login | Home | Registration | Dashboard |
-|------|--------------|-----------|
-|![Login](https://tinyurl.com/Login-screenshot-img) to view the login image. 
-|![home](https://tinyurl.com/Home-screenshot-img) to view the home image.  
-|![register](https://tinyurl.com/Registery-screenshot-img) to view the registery image.  
-|![dashboard](https://tinyurl.com/Education-screenshot-img) to view the education image.  
+|-------|------|--------------|-----------|
+| Click [here](https://tinyurl.com/Login-screenshot-img) to view the login image. | Click [here](https://tinyurl.com/Home-screenshot-img) to view the home image. | Click [here](https://tinyurl.com/Registery-screenshot-img) to view the register image. | Click [here](https://tinyurl.com/Education-screenshot-img) to view the education image. |
+
 
 ## ⚙️ Build & Run
 
 ```bash
 # Prerequisites: .NET 8 SDK, Visual Studio 2022+
-git clone https://github.com/amirsoleymani/FederationClimbingApp.git
-cd FederationClimbingApp/src/FederationApp
+git clone https://github.com/amirsolo456/MSFIApp-Demo.git
 dotnet build
 dotnet run
+
