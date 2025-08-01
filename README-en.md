@@ -1,14 +1,15 @@
-# Federation Climbing App 🧗‍♂️📱
+# MSFI App 🧗‍♂️📱
 
 A mobile-first cross-platform app built with .NET MAUI for managing mountain climbing federation activities.
 
 ## 🚀 Features
 
 - 📋 Registration for events and climbing tours
-- 📅 Event scheduling and calendar view
 - 🧑‍🤝‍🧑 Member management
-- 📍 Location and route tracking (planned)
 - 🛡️ Role-based access for admins, instructors, and members
+- 📚 Educational resources and guides related to climbing
+- 📝 Registration for climbing boot camps
+
 
 ## 🛠️ Technologies
 
@@ -16,13 +17,17 @@ A mobile-first cross-platform app built with .NET MAUI for managing mountain cli
 - MVVM (or your pattern)
 - Dependency Injection (DI)
 - XAML UI Design
-- SQLite / REST API / etc.
+- RESTful API – For fetching data from the backend (in this demo, mock data is used)
+- Local Storage – For securely managing tokens and ensuring good security practices
 
 ## 📸 Screenshots
 
-| Home | Registration | Dashboard |
+| Login | Home | Registration | Dashboard |
 |------|--------------|-----------|
-| ![home](assets/home.png) | ![register](assets/register.png) | ![dashboard](assets/dashboard.png) |
+|![Login](https://tinyurl.com/Login-screenshot-img) to view the login image. 
+|![home](https://tinyurl.com/Home-screenshot-img) to view the home image.  
+|![register](https://tinyurl.com/Registery-screenshot-img) to view the registery image.  
+|![dashboard](https://tinyurl.com/Education-screenshot-img) to view the education image.  
 
 ## ⚙️ Build & Run
 
