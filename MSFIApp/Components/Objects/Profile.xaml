@@ -13,13 +13,13 @@
         
         <VerticalStackLayout Grid.Row="0">
             <local:ProfilePictureFrame />
-            <Label Text="وحید عبدی" 
+            <Label Text="امیر سلیمانی" 
                        HorizontalTextAlignment="Center" 
                        FontFamily="IRANSans" 
                        FontAttributes="Bold" 
                        FontSize="16" />
 
-            <Label Text="09109947300" CharacterSpacing="0.1"
+            <Label Text="09109947320" CharacterSpacing="0.1"
                        HorizontalTextAlignment="Center" 
                        FontFamily="Yekan" 
                        FontSize="16" />
