@@ -17,3 +17,28 @@
 برای توضیحات به زبان فارسی، فایل  [README-fa.md](https://github.com/amirsolo456/MSFIApp-Demo/blob/main/README-fa.md) را مشاهده کنید.
 
 برای توضیحات به زبان انگلیسی، فایل [README-en.md](https://github.com/amirsolo456/MSFIApp-Demo/blob/main/README-en.md)  را مشاهده کنید.
+
+
+<!-- GitHub Topics (Tags): 
+dotnet
+dotnet-maui
+maui
+persian-date-picker
+datepicker
+shamsi-date
+solar-hijri
+maui-custom-control
+maui-component
+persian-calendar
+localized-datepicker
+mobile-ui
+xaml
+mvvm
+reusable-component
+تاریخ-شمسی
+تقویم-شمسی
+انتخابگر-تاریخ
+دیت-پیکر-فارسی
+تاریخ-ایرانی
+dotnet, dotnet-maui, maui, persian-date-picker, datepicker, shamsi-date, solar-hijri, maui-custom-control, maui-component, persian-calendar, localized-datepicker, mobile-ui, xaml, mvvm, reusable-component 
+-->
